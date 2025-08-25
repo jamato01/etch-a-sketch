@@ -29,10 +29,6 @@ body {
     border: 1px solid purple;
 }
 
-.hovered {
-    background-color: hotpink;
-}
-
 button {
     border: 1px solid purple;
     border-radius: 8px;
