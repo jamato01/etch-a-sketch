@@ -13,7 +13,7 @@ for (i = 0; i < 16; i++) {
     }
 }
 
-// Add event listener for hover
+// Event Listener for hover
 
 const grids = document.querySelectorAll('.grid');
 
@@ -21,4 +21,12 @@ grids.forEach((element) => {
     element.addEventListener('mouseover', (event) => {
         element.classList.add('hovered');
     });
+});
+
+// Event Listener for button
+
+const gridButton = document.querySelector('button');
+
+gridButton.addEventListener('click', (event) => {
+    createNewGrid();
 });
