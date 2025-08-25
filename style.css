@@ -1,0 +1,28 @@
+html, body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    display: flex;
+    height: 600px;
+    width: 600px;
+    border: 2px solid black;
+}
+
+.row-container {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.grid {
+    flex-grow: 1;
+    border: 1px solid purple;
+}
