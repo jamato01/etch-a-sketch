@@ -1,32 +1,46 @@
-// Create Grid
+// Create Initial Grid
 
 const container = document.querySelector('.container');
-
-for (i = 0; i < 16; i++) {
-    const rowContainer = document.createElement('div');
-    rowContainer.setAttribute('class', 'row-container');
-    container.appendChild(rowContainer);
-    for (j = 0; j < 16; j++) {
-        const grid = document.createElement('div');
-        grid.setAttribute('class', 'grid');
-        rowContainer.appendChild(grid);
-    }
-}
-
-// Event Listener for hover
-
-const grids = document.querySelectorAll('.grid');
-
-grids.forEach((element) => {
-    element.addEventListener('mouseover', (event) => {
-        element.classList.add('hovered');
-    });
-});
+createNewGrid(16);
 
 // Event Listener for button
 
 const gridButton = document.querySelector('button');
-
 gridButton.addEventListener('click', (event) => {
-    createNewGrid();
+    gridSize = prompt('How many squares per side?', 16);
+    createNewGrid(gridSize);
 });
+
+// Function to create new grid
+
+function createNewGrid(gridSize) {
+    // Check for grid range
+    if (gridSize > 100) {
+        alert('WARNING: Grid size is too big. Bringing down to maximum size of 100 squares per side.');
+        gridSize = 100;
+    } else if (gridSize <= 0) {
+        alert('WARNING: Grid size cannot be less than or equal to 0. Setting grid to 16 square per side.')
+        gridSize = 16;
+    }
+
+    // Create new grid
+    container.innerHTML = '';
+    for (i = 0; i < gridSize; i++) {
+        const rowContainer = document.createElement('div');
+        rowContainer.setAttribute('class', 'row-container');
+        container.appendChild(rowContainer);
+        for (j = 0; j < gridSize; j++) {
+            const grid = document.createElement('div');
+            grid.setAttribute('class', 'grid');
+            rowContainer.appendChild(grid);
+        }
+    }
+
+    // Event Listener for hover
+    const grids = document.querySelectorAll('.grid');
+    grids.forEach((element) => {
+        element.addEventListener('mouseover', (event) => {
+            element.classList.add('hovered');
+        });
+    });
+}
