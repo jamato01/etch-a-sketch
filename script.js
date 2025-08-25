@@ -32,6 +32,7 @@ function createNewGrid(gridSize) {
         for (j = 0; j < gridSize; j++) {
             const grid = document.createElement('div');
             grid.setAttribute('class', 'grid');
+            grid.style.opacity = 0;
             rowContainer.appendChild(grid);
         }
     }
@@ -41,6 +42,8 @@ function createNewGrid(gridSize) {
     grids.forEach((element) => {
         element.addEventListener('mouseover', (event) => {
             element.style.backgroundColor = getRandomRGB();
+            let currentOpacity = parseFloat(element.style.opacity);
+            element.style.opacity = Math.min(currentOpacity + 0.1, 1);
         });
     });
 }
